@@ -1,8 +1,13 @@
+// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_aula_1/repositories/conta_repository.dart';
 import 'package:intl/intl.dart';
 
 import 'package:flutter_aula_1/models/moeda.dart';
+import 'package:provider/provider.dart';
 
 class MoedaDetalhesPage extends StatefulWidget {
   Moeda moeda;
@@ -22,10 +27,14 @@ class _MoedaDetalhesPageState extends State<MoedaDetalhesPage> {
   final _form = GlobalKey<FormState>();
   final _valor = TextEditingController();
   double quantidade = 0.0;
+  late ContaRepository conta;
 
-  comprar() {
+  comprar() async {
     if (_form.currentState!.validate()) {
       //Salva a compra
+
+      conta.comprar(widget.moeda, double.parse(_valor.text));
+
       Navigator.pop(context);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Compra realizada")),
@@ -35,9 +44,11 @@ class _MoedaDetalhesPageState extends State<MoedaDetalhesPage> {
 
   @override
   Widget build(BuildContext context) {
+    conta = Provider.of<ContaRepository>(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(this.widget.moeda.nome),
+        title: Text(widget.moeda.nome),
       ),
       body: Column(
         children: [
@@ -52,7 +63,7 @@ class _MoedaDetalhesPageState extends State<MoedaDetalhesPage> {
                   width: 25,
                 ),
                 Text(
-                  '${this.format.format(widget.moeda.preco)}',
+                  format.format(widget.moeda.preco),
                   style: TextStyle(
                     fontSize: 24,
                   ),
@@ -110,6 +121,8 @@ class _MoedaDetalhesPageState extends State<MoedaDetalhesPage> {
                     return 'Inform o valor da compra.';
                   } else if (double.parse(value) < 50) {
                     return 'Compra mínima é R\$50,00';
+                  } else if (double.parse(value) > conta.saldo) {
+                    return 'Saldo insulficiente para realizar a compra';
                   }
                   return null;
                 },

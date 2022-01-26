@@ -20,6 +20,7 @@ class _LoginPageState extends State<LoginPage> {
   late String titulo;
   late String actionButton;
   late String toggleButton;
+  bool loading = false;
 
   @override
   void initState() {
@@ -115,23 +116,36 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.check),
-                        Padding(
-                          padding: EdgeInsets.all(16),
-                          child: Text(
-                            actionButton,
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ],
+                      children: loading
+                          ? [
+                              Padding(
+                                padding: EdgeInsets.all(16),
+                                child: SizedBox(
+                                  width: 24,
+                                  height: 24,
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ]
+                          : [
+                              Icon(Icons.check),
+                              Padding(
+                                padding: EdgeInsets.all(16),
+                                child: Text(
+                                  actionButton,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ),
+                            ],
                     ),
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => setFormAction(false),
                   child: Text(toggleButton),
                 )
               ],
@@ -144,8 +158,10 @@ class _LoginPageState extends State<LoginPage> {
 
   void login() async {
     try {
+      setState(() => loading = true);
       await context.read<AuthService>().login(email.text, senha.text);
     } on AuthException catch (e) {
+      setState(() => loading = false);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(e.message),
@@ -155,9 +171,11 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void registrar() async {
+    setState(() => loading = true);
     try {
       await context.read<AuthService>().registrar(email.text, senha.text);
     } on AuthException catch (e) {
+      setState(() => loading = false);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(e.message),

@@ -1,6 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_aula_1/pages/moedas_page.dart';
 
+import 'careteira_page.dart';
 import 'configuracoes_page.dart';
 import 'favoritas_page.dart';
 
@@ -32,6 +35,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           MoedasPage(),
           FavoritasPage(),
+          CarteiraPage(),
           ConfiguracoesPage(),
         ],
         onPageChanged: (pagina) {
@@ -41,12 +45,27 @@ class _HomePageState extends State<HomePage> {
         },
       ),
       bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Color(Colors.amber.shade200.value),
+        type: BottomNavigationBarType.fixed,
         currentIndex: paginaAtual,
+        // ignore: prefer_const_literals_to_create_immutables
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: "Todas"),
-          BottomNavigationBarItem(icon: Icon(Icons.star), label: "Favoritas"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: "Configurações"),
+            icon: Icon(Icons.list),
+            label: "Todas",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.star),
+            label: "Favoritas",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_balance_wallet_outlined),
+            label: "Carteira",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "Configurações",
+          ),
         ],
         onTap: (pagina) {
           pc.animateToPage(pagina,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_aula_1/pages/moedas_page.dart';
+import 'package:flutter_aula_1/widgets/auth_check.dart';
 
 import 'pages/home_page.dart';
 
@@ -12,7 +13,7 @@ class MeuAplicativo extends StatelessWidget {
     return MaterialApp(
       title: "Meu Aplicativo",
       theme: ThemeData(primarySwatch: Colors.teal),
-      home: HomePage(),
+      home: AuthCheck(),
     );
   }
 }

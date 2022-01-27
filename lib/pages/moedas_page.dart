@@ -2,11 +2,11 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:flutter_aula_1/configs/app_settings.dart';
-import 'package:flutter_aula_1/models/moeda.dart';
-import 'package:flutter_aula_1/pages/moedas_detalhes_page.dart';
-import 'package:flutter_aula_1/repositories/favoritas_repository.dart';
-import 'package:flutter_aula_1/repositories/moeda_repository.dart';
+import 'package:cripto_app/configs/app_settings.dart';
+import 'package:cripto_app/models/moeda.dart';
+import 'package:cripto_app/pages/moedas_detalhes_page.dart';
+import 'package:cripto_app/repositories/favoritas_repository.dart';
+import 'package:cripto_app/repositories/moeda_repository.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 

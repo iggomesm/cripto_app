@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "468255795323",
+    "project_id": "criptoapp-2adeb",
+    "storage_bucket": "criptoapp-2adeb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:468255795323:android:88106929e4b1f713f29ade",
+        "android_client_info": {
+          "package_name": "com.example.cripto_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "468255795323-0isi1hpen5cg44u7r6u00llhn53vji1p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBps9Uf9N6VkmrNW-EHuxwyJQgupQiyolU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "468255795323-0isi1hpen5cg44u7r6u00llhn53vji1p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "468255795323-dmu1jl4oi5itfc0e9abrjuegks6luq1g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.criptoMoedas"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

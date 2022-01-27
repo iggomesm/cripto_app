@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
-import 'package:flutter_aula_1/pages/home_page.dart';
-import 'package:flutter_aula_1/pages/login_page.dart';
-import 'package:flutter_aula_1/services/auth_services.dart';
+import 'package:cripto_app/pages/home_page.dart';
+import 'package:cripto_app/pages/login_page.dart';
+import 'package:cripto_app/services/auth_services.dart';
 import 'package:provider/provider.dart';
 
 class AuthCheck extends StatefulWidget {

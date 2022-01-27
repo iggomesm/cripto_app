@@ -1,7 +1,7 @@
+import 'package:cripto_app/models/moeda.dart';
+import 'package:cripto_app/pages/moedas_detalhes_page.dart';
+import 'package:cripto_app/repositories/favoritas_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_aula_1/models/moeda.dart';
-import 'package:flutter_aula_1/pages/moedas_detalhes_page.dart';
-import 'package:flutter_aula_1/repositories/favoritas_repository.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 

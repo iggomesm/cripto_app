@@ -1,4 +1,4 @@
-import 'package:flutter_aula_1/models/moeda.dart';
+import 'package:cripto_app/models/moeda.dart';
 
 class MoedaRepository {
   static List<Moeda> tabela = [

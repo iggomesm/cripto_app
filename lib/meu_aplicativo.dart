@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_aula_1/pages/moedas_page.dart';
-import 'package:flutter_aula_1/widgets/auth_check.dart';
 
 import 'pages/home_page.dart';
+import 'widgets/auth_check.dart';
 
 class MeuAplicativo extends StatelessWidget {
   const MeuAplicativo({Key? key}) : super(key: key);

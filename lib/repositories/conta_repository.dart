@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_aula_1/database/db.dart';
-import 'package:flutter_aula_1/models/historico.dart';
-import 'package:flutter_aula_1/models/moeda.dart';
-import 'package:flutter_aula_1/models/posicao.dart';
-import 'package:flutter_aula_1/repositories/moeda_repository.dart';
+import 'package:cripto_app/database/db.dart';
+import 'package:cripto_app/models/historico.dart';
+import 'package:cripto_app/models/moeda.dart';
+import 'package:cripto_app/models/posicao.dart';
+import 'package:cripto_app/repositories/moeda_repository.dart';
 import 'package:sqflite/sqflite.dart';
 
 class ContaRepository extends ChangeNotifier {

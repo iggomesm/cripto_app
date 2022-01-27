@@ -1,7 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_aula_1/models/moeda.dart';
+import 'package:cripto_app/models/moeda.dart';
 
 class FavoritasRepository extends ChangeNotifier {
   List<Moeda> _lista = [];

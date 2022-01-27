@@ -3,10 +3,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_aula_1/repositories/conta_repository.dart';
+import 'package:cripto_app/repositories/conta_repository.dart';
 import 'package:intl/intl.dart';
 
-import 'package:flutter_aula_1/models/moeda.dart';
+import 'package:cripto_app/models/moeda.dart';
 import 'package:provider/provider.dart';
 
 class MoedaDetalhesPage extends StatefulWidget {

@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_aula_1/pages/moedas_page.dart';
+import 'package:cripto_app/pages/moedas_page.dart';
 
 import 'careteira_page.dart';
 import 'configuracoes_page.dart';

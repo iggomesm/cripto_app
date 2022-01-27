@@ -2,9 +2,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_aula_1/configs/app_settings.dart';
-import 'package:flutter_aula_1/repositories/conta_repository.dart';
-import 'package:flutter_aula_1/services/auth_services.dart';
+import 'package:cripto_app/configs/app_settings.dart';
+import 'package:cripto_app/repositories/conta_repository.dart';
+import 'package:cripto_app/services/auth_services.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 

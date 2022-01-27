@@ -1,4 +1,4 @@
-# flutter_aula_1
+# cripto_app
 
 A new Flutter project.
 

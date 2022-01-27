@@ -1,6 +1,6 @@
-import 'package:flutter_aula_1/configs/app_settings.dart';
-import 'package:flutter_aula_1/models/posicao.dart';
-import 'package:flutter_aula_1/repositories/conta_repository.dart';
+import 'package:cripto_app/configs/app_settings.dart';
+import 'package:cripto_app/models/posicao.dart';
+import 'package:cripto_app/repositories/conta_repository.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';

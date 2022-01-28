@@ -18,12 +18,13 @@ class MoedasPage extends StatefulWidget {
 }
 
 class _MoedasPageState extends State<MoedasPage> {
-  final tabela = MoedaRepository.tabela;
+  late List<Moeda> tabela;
   late NumberFormat real;
   List<Moeda> selecionadas = [];
 
   late FavoritasRepository favoritas;
   late AppSettings settings;
+  late MoedaRepository moedas;
 
   Widget changeLanguageButton() {
     final String nameMenu =
@@ -98,55 +99,61 @@ class _MoedasPageState extends State<MoedasPage> {
     // Ou posso pegar dessa forma
     favoritas = context.watch<FavoritasRepository>();
     settings = context.watch<AppSettings>();
+    moedas = context.watch<MoedaRepository>();
+
+    tabela = moedas.tabela;
 
     montaConfiguracoes();
 
     return Scaffold(
       appBar: _appBarDinamica(),
-      body: ListView.separated(
-        itemCount: tabela.length,
-        itemBuilder: (BuildContext context, int moeda) {
-          return ListTile(
-            leading: selecionadas.contains(tabela[moeda])
-                ? CircleAvatar(
-                    child: Icon(Icons.check_circle),
-                  )
-                : SizedBox(
-                    child: Image.asset(tabela[moeda].icone),
-                    width: 40,
+      body: RefreshIndicator(
+        onRefresh: () => moedas.checkPrecos(),
+        child: ListView.separated(
+          itemCount: tabela.length,
+          itemBuilder: (BuildContext context, int moeda) {
+            return ListTile(
+              leading: selecionadas.contains(tabela[moeda])
+                  ? CircleAvatar(
+                      child: Icon(Icons.check_circle),
+                    )
+                  : SizedBox(
+                      child: Image.network(tabela[moeda].icone),
+                      width: 40,
+                    ),
+              title: Row(
+                children: [
+                  Text(
+                    tabela[moeda].nome,
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
                   ),
-            title: Row(
-              children: [
-                Text(
-                  tabela[moeda].nome,
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
-                ),
-                if (favoritas.lista.contains(tabela[moeda]))
-                  Icon(
-                    Icons.star,
-                    color: Colors.amber,
-                    size: 12,
-                  )
-              ],
-            ),
-            trailing: Text(real.format(tabela[moeda].preco)),
-            selected: selecionadas.contains(tabela[moeda]),
-            selectedTileColor: Colors.indigo[50],
-            onTap: () {
-              mostrarDetalhes(tabela[moeda]);
-            },
-            onLongPress: () {
-              setState(() {
-                (selecionadas.contains(tabela[moeda]))
-                    ? selecionadas.remove(tabela[moeda])
-                    : selecionadas.add(tabela[moeda]);
-              });
-              print(tabela[moeda].nome);
-            },
-          );
-        },
-        padding: EdgeInsets.all(16),
-        separatorBuilder: (_, ____) => Divider(),
+                  if (favoritas.lista.contains(tabela[moeda]))
+                    Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                      size: 12,
+                    )
+                ],
+              ),
+              trailing: Text(real.format(tabela[moeda].preco)),
+              selected: selecionadas.contains(tabela[moeda]),
+              selectedTileColor: Colors.indigo[50],
+              onTap: () {
+                mostrarDetalhes(tabela[moeda]);
+              },
+              onLongPress: () {
+                setState(() {
+                  (selecionadas.contains(tabela[moeda]))
+                      ? selecionadas.remove(tabela[moeda])
+                      : selecionadas.add(tabela[moeda]);
+                });
+                print(tabela[moeda].nome);
+              },
+            );
+          },
+          padding: EdgeInsets.all(16),
+          separatorBuilder: (_, ____) => Divider(),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: (selecionadas.isEmpty)

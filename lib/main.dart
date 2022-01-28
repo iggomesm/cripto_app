@@ -1,3 +1,4 @@
+import 'package:cripto_app/repositories/moeda_repository.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -20,13 +21,18 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => AuthService()),
+        ChangeNotifierProvider(create: (context) => MoedaRepository()),
         ChangeNotifierProvider(create: (context) => AppSettings()),
         ChangeNotifierProvider(
           create: (context) => FavoritasRepository(
-            auth: context.read<AuthService>(),
+              auth: context.read<AuthService>(),
+              moedas: context.read<MoedaRepository>()),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ContaRepository(
+            moedas: context.read<MoedaRepository>(),
           ),
         ),
-        ChangeNotifierProvider(create: (context) => ContaRepository()),
       ],
       child: const MeuAplicativo(),
     ),

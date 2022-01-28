@@ -10,10 +10,16 @@ import 'moeda_repository.dart';
 
 class FavoritasRepository extends ChangeNotifier {
   List<Moeda> _lista = [];
+
+  // Instância do Banco Firebase.
   late FirebaseFirestore db;
+
+  // Instância do usuário autenticado
   late AuthService auth;
 
-  FavoritasRepository({required this.auth}) {
+  late MoedaRepository moedas;
+
+  FavoritasRepository({required this.auth, required this.moedas}) {
     _startRepository();
   }
 
@@ -32,7 +38,7 @@ class FavoritasRepository extends ChangeNotifier {
           await db.collection('usuarios/${auth.usuario!.uid}/favoritas').get();
 
       snapshot.docs.forEach((doc) {
-        Moeda moeda = MoedaRepository.tabela
+        Moeda moeda = moedas.tabela
             .firstWhere((moeda) => moeda.sigla == doc.get('sigla'));
         _lista.add(moeda);
         notifyListeners();

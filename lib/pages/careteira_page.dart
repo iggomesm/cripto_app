@@ -1,3 +1,6 @@
+// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:cripto_app/configs/app_settings.dart';
 import 'package:cripto_app/models/posicao.dart';
 import 'package:cripto_app/repositories/conta_repository.dart';

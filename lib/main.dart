@@ -21,7 +21,11 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (context) => AuthService()),
         ChangeNotifierProvider(create: (context) => AppSettings()),
-        ChangeNotifierProvider(create: (context) => FavoritasRepository()),
+        ChangeNotifierProvider(
+          create: (context) => FavoritasRepository(
+            auth: context.read<AuthService>(),
+          ),
+        ),
         ChangeNotifierProvider(create: (context) => ContaRepository()),
       ],
       child: const MeuAplicativo(),

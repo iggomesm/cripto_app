@@ -1,4 +1,6 @@
 PODS:
+  - camera (0.0.1):
+    - Flutter
   - cloud_firestore (2.5.4):
     - Firebase/Firestore (= 8.10.0)
     - firebase_core
@@ -77,6 +79,7 @@ PODS:
     - FMDB (>= 2.7.5)
 
 DEPENDENCIES:
+  - camera (from `.symlinks/plugins/camera/ios`)
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
@@ -99,6 +102,8 @@ SPEC REPOS:
     - PromisesObjC
 
 EXTERNAL SOURCES:
+  camera:
+    :path: ".symlinks/plugins/camera/ios"
   cloud_firestore:
     :path: ".symlinks/plugins/cloud_firestore/ios"
   firebase_auth:
@@ -121,6 +126,7 @@ CHECKOUT OPTIONS:
     :tag: 8.10.0
 
 SPEC CHECKSUMS:
+  camera: 9993f92f2c793e87b65e35f3a23c70582afb05b1
   cloud_firestore: 8a183be37e2e2d9f6a48e2c082cfb344196f6823
   Firebase: 44213362f1dcc52555b935dc925ed35ac55f1b20
   firebase_auth: 02cd3ee1be134c956a4809d500d232e359bc00ad
